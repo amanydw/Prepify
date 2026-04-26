@@ -1,0 +1,263 @@
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #d1d5db;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            transition: background-color 0.3s;
+        }
+
+        body.dark {
+            background-color: #000000;
+        }
+
+        #mobile-app {
+            width: 100%;
+            background-color: #e5e7eb;
+            height: 100dvh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s;
+        }
+
+        .dark #mobile-app {
+            background-color: #000000;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dark .glass-card {
+            background: rgba(17, 17, 17, 0.85);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .liquid-header {
+            background: #ffffff;
+            border-bottom: 1.5px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            z-index: 30;
+        }
+
+        .dark .liquid-header {
+            background: #000000;
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 30;
+        }
+
+        .liquid-nav {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1.5px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .liquid-nav {
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        main {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 120px;
+            padding-top: 16px;
+        }
+
+        .view-section {
+            display: none;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        .nav-item {
+            color: #9ca3af;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            transform: scale(1.05);
+        }
+
+        .nav-item.active {
+            color: #000000;
+            transform: scale(1.15);
+        }
+
+        .nav-item.active span {
+            font-weight: 600;
+        }
+
+        .dark .nav-item.active {
+            color: #ffffff;
+        }
+
+        input,
+        select {
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        button:active {
+            transform: scale(0.96);
+            transition: transform 0.1s;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .nav-item .solid-icon {
+            display: none;
+        }
+
+        .nav-item.active .solid-icon {
+            display: block;
+        }
+
+        .nav-item.active .outline-icon {
+            display: none;
+        }
+
+        @keyframes waveAction {
+            0% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+
+        .water-wave {
+            position: absolute;
+            width: 250%;
+            height: 250%;
+            background: rgba(147, 197, 253, 0.6);
+            left: 50%;
+            border-radius: 38%;
+            animation: waveAction 5s linear infinite;
+        }
+
+        .dark .water-wave {
+            background: rgba(59, 130, 246, 0.5);
+        }
+
+        .water-wave:nth-child(2) {
+            background: rgba(96, 165, 250, 0.6);
+            animation: waveAction 7s linear infinite;
+            border-radius: 42%;
+        }
+
+        .dark .water-wave:nth-child(2) {
+            background: rgba(37, 99, 235, 0.6);
+        }
+
+        /* Animated Flame CSS */
+        .flame-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            z-index: 10;
+            filter: drop-shadow(0 4px 10px rgba(255, 200, 0, 0.6));
+        }
+
+        .flame {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            border-radius: 50% 0 50% 50%;
+            transform-origin: 50% 50%;
+        }
+
+        .flame-outer {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #fcd34d 0%, #f97316 100%);
+            animation: flickerOuter 1.5s ease-in-out infinite alternate;
+        }
+
+        .flame-inner {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #fef08a 0%, #f59e0b 100%);
+            animation: flickerInner 1.2s ease-in-out infinite alternate-reverse;
+            bottom: 10px;
+        }
+
+        .flame-core {
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
+            animation: flickerCore 1s ease-in-out infinite alternate;
+            bottom: 14px;
+        }
+
+        @keyframes flickerOuter {
+            0% {
+                transform: translateX(-50%) rotate(-48deg) scale(0.95);
+            }
+
+            100% {
+                transform: translateX(-50%) rotate(-42deg) scale(1.05);
+            }
+        }
+
+        @keyframes flickerInner {
+            0% {
+                transform: translateX(-50%) rotate(-40deg) scale(0.9);
+            }
+
+            100% {
+                transform: translateX(-50%) rotate(-50deg) scale(1.1);
+            }
+        }
+
+        @keyframes flickerCore {
+            0% {
+                transform: translateX(-50%) rotate(-45deg) scale(0.85);
+            }
+
+            100% {
+                transform: translateX(-50%) rotate(-45deg) scale(1.15);
+            }
+        }
